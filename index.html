@@ -1,9 +1,9 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><!-- KIST 가을페스타 모바일 v30 · 경량 배포용(Netlify 크레딧 절감): 그림·글꼴 assets/ 분리, 글꼴 서브셋, 해시 파일명 캐시 --><title>KIST 가을페스타</title>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><!-- KIST 가을페스타 모바일 v31 · 행사 종료 안내 페이지(경량 배포용) · 행사 운영 페이지 최종본은 v30(71161c4) --><title>KIST 가을페스타</title>
 <style>
-@font-face{font-family:'GmarketB';src:url(assets/GmarketSansBold-53d9528e.woff2) format('woff2');font-weight:700;font-display:swap}
-@font-face{font-family:'GmarketM';src:url(assets/GmarketSansMedium-ea750b5c.woff2) format('woff2');font-weight:500;font-display:swap}
-@font-face{font-family:'FreeM';src:url(assets/Freesentation-5Medium-9097d651.woff2) format('woff2');font-weight:500;font-display:swap}
-@font-face{font-family:'FreeB';src:url(assets/Freesentation-7Bold-d524c719.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'GmarketB';src:url(assets/GmarketSansBold-0aeaa9bf.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'GmarketM';src:url(assets/GmarketSansMedium-18ac9356.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'FreeM';src:url(assets/Freesentation-5Medium-8addd9de.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'FreeB';src:url(assets/Freesentation-7Bold-2f61ceda.woff2) format('woff2');font-weight:700;font-display:swap}
 
 :root{
   --sky1:#EACC8F; --sky2:#EDBE9C; --lawn:#939E7B; --lawn2:#848F6C; --lawn3:#737E5C;
@@ -337,121 +337,88 @@ em.ph{font-family:'GmarketM',sans-serif;color:var(--mute)}
 
 
 .lt b.r1{background:#C83A2E}.lt b.r2{background:#C9971F}.lt b.r3{background:#7F8B5E}.lt b.r4{background:#7D2621}
+.credit{padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+</style>
+
+<style>
+.done{display:inline-flex;align-items:center;gap:6px;background:var(--bur);color:var(--cream);font-family:'FreeM',sans-serif;font-size:14px;padding:5px 14px 6px;border-radius:99px}
+.thx{display:flex;flex-direction:column;gap:12px}
+.thx p{margin:0;font-size:15px;line-height:1.75;color:var(--ink)}
+.thx .sign{margin-top:4px;text-align:right;font-family:'FreeB',sans-serif;font-size:15px;color:var(--bur)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fact{background:#fff;border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.fact .k{font-family:'FreeB',sans-serif;font-size:13px;color:var(--tom)}
+.fact .v{font-family:'GmarketB',sans-serif;font-size:15px;color:var(--ink);line-height:1.35;white-space:nowrap}
+.fact .v small{display:block;font-family:'GmarketM',sans-serif;font-size:13px;color:var(--mute);margin-top:2px}
+.fact.big{grid-column:1/-1;background:var(--bur)}
+.fact.big .k{color:var(--gold)}
+.fact.big .v{color:#fff;font-size:26px}
+.fact.big .v small{display:inline;color:#E9C4B8;font-size:14px;margin-left:4px}
+.rank{margin-top:12px;background:#fff;border-radius:16px;padding:14px}
+.rank .k{display:block;font-family:'FreeB',sans-serif;font-size:13px;color:var(--tom);margin-bottom:10px}
+.rank ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.rank li{display:flex;align-items:center;gap:10px;background:var(--paper);border-radius:14px;padding:10px 12px}
+.rank .m{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:'GmarketB',sans-serif;font-size:14px;color:#fff}
+.rank .tm{display:flex;align-items:center;gap:7px;font-family:'GmarketB',sans-serif;font-size:17px;color:var(--ink)}
+.rank .dot{flex:none;width:11px;height:11px;border-radius:50%}
+.rank li.r1{background:var(--bur)}
+.rank li.r1 .m{background:var(--gold);color:var(--ink)}
+.rank li.r1 .tm{color:#fff}
+.rank li.r2 .m{background:#9AA3A8}
+.rank li.r3 .m{background:#B07A4E}
+.ev{display:flex;flex-direction:column;gap:8px}
+.ev div{display:grid;grid-template-columns:64px 1fr;gap:8px;align-items:baseline;background:#fff;border-radius:14px;padding:11px 14px}
+.ev dt{font-family:'FreeB',sans-serif;font-size:14px;color:var(--tom)}
+.ev dd{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink)}
+.ev dd b{font-family:'GmarketB',sans-serif;font-weight:400;color:var(--bur)}
+.evnote{margin:10px 2px 0;font-size:13px;color:var(--mute);line-height:1.5}
+.h-sc60{left:31%;bottom:24%;width:8%}
+.closed{display:block;margin-top:8px;font-size:12px;opacity:.8}
 </style>
 <div class="app">
   <header class="hero" id="top">
     <img class="hero-kv" src="assets/hero-90bb8c52.webp" alt="2026 KIST 가을페스타 · 다시! 우리! KIST Spirit!" width="1725" height="743">
-    <div class="when tn"><b>10.16.</b><span>(Fri) 09:00 ~ 16:00</span><span class="sep">|</span><span><svg viewBox="0 0 12 14" aria-hidden="true"><path d="M6 0a5 5 0 0 0-5 5c0 3.8 5 9 5 9s5-5.2 5-9a5 5 0 0 0-5-5zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg> KIST 잔디마당</span></div>
+    <div class="when"><span class="done">행사가 마무리되었습니다</span></div>
     <div class="horizon" aria-hidden="true">
       <img width="1273" height="702" class="h-cityl" src="assets/city_l-04496da9.webp" alt="">
       <img width="1855" height="808" class="h-cityr" src="assets/city_r-094a3314.webp" alt="">
       <img width="1734" height="1110" class="h-hq" src="assets/hq-61351eec.webp" alt="">
       <img width="510" height="301" class="h-pic" src="assets/picnic1-4889c62a.webp" alt="">
       <img width="922" height="314" class="h-pond" src="assets/pond-53e0c913.webp" alt="">
+      <img width="320" height="360" class="h-sc60" src="assets/sculpt60-319e8d5e.webp" alt="">
       <img width="215" height="207" class="h-cheer" src="assets/cheer-daab347e.webp" alt="">
     </div>
   </header>
 
-  <nav class="nav" aria-label="섹션">
-    <ul>
-      <li><a href="#timetable">시간표</a></li>
-      <li><a href="#battle" data-s="battle games">프로그램</a></li>
-      <li><a href="#lunch" data-s="lunch food">점심</a></li>
-      <li><a href="#stage">축하공연</a></li>
-      <li><a href="#lucky">경품추첨</a></li>
-      <li><a href="#photo">포토부스</a></li>
-    </ul>
-  </nav>
-
   <main class="main">
-
-    <section class="sec" id="timetable">
-      <img loading="lazy" decoding="async" width="1562" height="710" class="art" src="assets/tents-b5d01b3c.webp" alt="" aria-hidden="true">
+    <section class="sec">
       <div class="card">
-        <div class="head"><span class="eyebrow">TIMETABLE</span><h3>오늘의 순서</h3></div>
-        <ol class="tt tn" id="tt"><li><span class="t">09:00</span><div><div class="n">등록</div><div class="s">소본부별 접수대 등록</div></div><span class="st">메인무대</span></li><li><span class="t">09:30</span><div><div class="n">입장 · 개회식</div></div><span class="st">메인무대</span></li><li><span class="t">10:00</span><div><div class="n">소본부별 대항전</div><div class="s">애드벌룬 릴레이 · 바람잡는 특공대 · 에어사다리 릴레이 · 줄다리기 예선·준준결승 · 비전탑 쌓기</div></div><span class="st">메인</span></li><li><span class="t">11:30</span><div><div class="n">점심 · 푸드트럭 · 미니게임</div><div class="s">점심제공(대식당, 외빈식당)<br>잔디마당 미니올림픽 6종</div></div><span class="st">전역</span></li><li><span class="t">13:30</span><div><div class="n">줄다리기 준결승 · 결승</div><div class="s">부전승 결정 게임 포함</div></div><span class="st">메인</span></li><li><span class="t">14:00</span><div><div class="n">레크리에이션</div><div class="s">개원 60주년 O·X 퀴즈 (상품 증정)</div></div><span class="st">메인</span></li><li><span class="t">14:20</span><div><div class="n">축하공연 ① <span class="nw">KIST K-밴드</span></div><div class="m">마이너리비전</div><div class="s">차세대반도체·첨단소재 학생연구원</div></div><span class="st">메인무대</span></li><li><span class="t">14:40</span><div><div class="n">축하공연 ② <span class="nw">출연연 연합밴드</span></div><div class="m">OneST <span class="nw">(One Sound Together)</span></div><div class="s">생기연 · 국보연 · KIST · KISTI 연합밴드</div></div><span class="st">메인무대</span></li><li><span class="t">15:00</span><div><div class="n">럭키드로우 · 시상 · 폐회</div><div class="s">행운권을 준비해 주세요</div></div><span class="st">메인무대</span></li></ol>
-      </div>
-      <!--SEATMAP--><div class="card" id="seatmap" style="margin-top:14px"><div class="head"><span class="eyebrow">SEAT MAP</span><h3>자리배치도</h3><p>우리 소본부 천막 위치를 확인하세요.</p></div><div class="smap" role="img" aria-label="자리배치도: 위쪽 줄 1~8번, 오른쪽 줄 9·10번·본부석·11·12번, 아래쪽 무대" style="aspect-ratio:100/78"><div class="sm-food" style="left:0.00%;top:0.00%;width:7.40%;height:89.74%">푸드트럭</div><div class="sm-lawn" style="left:8.40%;top:0.00%;width:91.60%;height:89.74%"></div><div class="sm-bld" style="left:8.40%;top:91.67%;width:91.60%;height:8.33%">국제협력관</div><div class="sm-tent" style="left:10.40%;top:2.56%;width:8.66%;height:11.54%"><b>1</b></div><div class="sm-desk" style="left:11.96%;top:15.64%;width:5.54%;height:3.08%"></div><div class="sm-tent" style="left:20.16%;top:2.56%;width:8.66%;height:11.54%"><b>2</b></div><div class="sm-desk" style="left:21.72%;top:15.64%;width:5.54%;height:3.08%"></div><div class="sm-tent" style="left:29.93%;top:2.56%;width:8.66%;height:11.54%"><b>3</b></div><div class="sm-desk" style="left:31.48%;top:15.64%;width:5.54%;height:3.08%"></div><div class="sm-tent" style="left:39.69%;top:2.56%;width:8.66%;height:11.54%"><b>4</b></div><div class="sm-desk" style="left:41.25%;top:15.64%;width:5.54%;height:3.08%"></div><div class="sm-tent" style="left:49.45%;top:2.56%;width:8.66%;height:11.54%"><b>5</b></div><div class="sm-desk" style="left:51.01%;top:15.64%;width:5.54%;height:3.08%"></div><div class="sm-tent" style="left:59.21%;top:2.56%;width:8.66%;height:11.54%"><b>6</b></div><div class="sm-desk" style="left:60.77%;top:15.64%;width:5.54%;height:3.08%"></div><div class="sm-tent" style="left:68.98%;top:2.56%;width:8.66%;height:11.54%"><b>7</b></div><div class="sm-desk" style="left:70.53%;top:15.64%;width:5.54%;height:3.08%"></div><div class="sm-tent" style="left:78.74%;top:2.56%;width:8.66%;height:11.54%"><b>8</b></div><div class="sm-desk" style="left:80.30%;top:15.64%;width:5.54%;height:3.08%"></div><div class="sm-tent v" style="left:89.80%;top:16.67%;width:9.00%;height:12.92%"><b>9</b></div><div class="sm-desk" style="left:86.20%;top:19.57%;width:2.40%;height:7.11%"></div><div class="sm-tent v" style="left:89.80%;top:31.38%;width:9.00%;height:12.92%"><b>10</b></div><div class="sm-desk" style="left:86.20%;top:34.29%;width:2.40%;height:7.11%"></div><div class="sm-hq" style="left:89.80%;top:46.10%;width:9.00%;height:12.92%">본부석</div><div class="sm-tent v" style="left:89.80%;top:60.82%;width:9.00%;height:12.92%"><b>11</b></div><div class="sm-desk" style="left:86.20%;top:63.73%;width:2.40%;height:7.11%"></div><div class="sm-tent v" style="left:89.80%;top:75.54%;width:9.00%;height:12.92%"><b>12</b></div><div class="sm-desk" style="left:86.20%;top:78.45%;width:2.40%;height:7.11%"></div><div class="sm-lw" style="left:8.4%;width:79%;top:38.46%">잔디운동장</div><div class="sm-lm" style="left:11.40%;top:78.21%;width:8.00%;height:10.26%">인생<br>네컷</div><div class="sm-lm" style="left:20.90%;top:78.21%;width:12.00%;height:10.26%">경품<br>교환처</div><div class="sm-stg" style="left:35.40%;top:73.08%;width:24.00%;height:15.38%">무대</div><div class="sm-lm" style="left:61.40%;top:78.21%;width:11.00%;height:10.26%">시스템<br>부스</div><div class="sm-lm" style="left:73.90%;top:78.21%;width:11.00%;height:10.26%">상황실</div></div><div class="sm-key"><i></i>각 천막 앞 접수 테이블에서 등록해요</div><ol class="sm-leg"><li><b class="tn">1</b>첨단소재</li><li><b class="tn">2</b>차세대반도체</li><li><b class="tn">3</b>청정수소융합</li><li><b class="tn">4</b>기후환경</li><li><b class="tn">5</b>강릉분원</li><li><b class="tn">6</b>AI·로봇</li><li><b class="tn">7</b>연구융합지원</li><li><b class="tn">8</b>전북분원</li><li><b class="tn">9</b>뇌과학</li><li><b class="tn">10</b>바이오·메디컬</li><li><b class="tn">11</b>지속가능미래기술</li><li><b class="tn">12</b>연구지원(행정)</li></ol></div><!--/SEATMAP-->
-    </section>
-
-    <section class="sec" id="battle">
-      <img loading="lazy" decoding="async" width="1065" height="312" class="art" src="assets/tug-7c3a3bc4.webp" alt="" aria-hidden="true">
-      <div class="card">
-        <div class="head"><span class="eyebrow">PROGRAM · 10:00 ~</span><h3>우리 소본부, 다시 한 번!</h3><p>종목 이름을 누르면 진행 방식과 대진표를 볼 수 있어요.</p></div><div class="evs2"><div class="part">오전</div><details class="evd"><summary><span class="ic" style="background:var(--tom);color:#fff">1</span><div class="tx"><div class="n">대형 애드벌룬 릴레이</div><div class="s">도열 인원 전원</div></div><span class="chev" aria-hidden="true"></span></summary><div class="evb"><dl class="ei"><div><dt>참가</dt><dd>도열 인원 전원</dd></div><div><dt>방식</dt><dd>12팀 동시 출발 · 3라운드 도착 순위 합산</dd></div></dl></div></details><details class="evd"><summary><span class="ic" style="background:var(--gold);color:var(--ink)">2</span><div class="tx"><div class="n">바람잡는 특공대</div><div class="s">도열 인원 중 50명</div></div><span class="chev" aria-hidden="true"></span></summary><div class="evb"><dl class="ei"><div><dt>참가</dt><dd>도열 인원 중 50명</dd></div><div><dt>방식</dt><dd>12팀 동시 · 마지막 통천 높이 순</dd></div></dl></div></details><details class="evd"><summary><span class="ic" style="background:var(--lawn2);color:#fff">3</span><div class="tx"><div class="n">에어사다리 릴레이</div><div class="s">팀별 32명 · A·B조 예선</div></div><span class="bk">대진표</span><span class="chev" aria-hidden="true"></span></summary><div class="evb"><dl class="ei"><div><dt>참가</dt><dd>팀별 32명 (8인 × 4조)</dd></div><div><dt>방식</dt><dd>A·B조 예선 → 조별 상위 3팀 결승</dd></div></dl><h4 class="bh">전체 구조</h4><div class="flow"><div class="fr2"><div class="fb fa">A조 예선<small>6팀</small></div><div class="fb fbb">B조 예선<small>6팀</small></div></div><div class="fj"><span>조별 상위 3팀</span></div><div class="fb ff">결승<small>6팀 · 최종 순위 결정</small></div></div><h4 class="bh">조 편성</h4><div class="grps"><div class="grp2 ga"><h5>A조 예선</h5><div class="slot"><b>A1</b><em>기후환경</em></div><div class="slot"><b>A2</b><em>첨단소재</em></div><div class="slot"><b>A3</b><em>뇌과학</em></div><div class="slot"><b>A4</b><em>연구융합지원</em></div><div class="slot"><b>A5</b><em>연구지원<wbr>(행정)</em></div><div class="slot"><b>A6</b><em>AI·로봇</em></div></div><div class="grp2 gb"><h5>B조 예선</h5><div class="slot"><b>B1</b><em>청정수소융합</em></div><div class="slot"><b>B2</b><em>차세대반도체</em></div><div class="slot"><b>B3</b><em>바이오·<wbr>메디컬</em></div><div class="slot"><b>B4</b><em>지속가능<wbr>미래기술</em></div><div class="slot"><b>B5</b><em>전북분원</em></div><div class="slot"><b>B6</b><em>강릉분원</em></div></div></div></div></details><details class="evd"><summary><span class="ic" style="background:#5B7FA6;color:#fff">4</span><div class="tx"><div class="n">줄다리기<span class="when3">오전</span></div><div class="s">예선 · 준준결승</div></div><span class="bk">대진표</span><span class="chev" aria-hidden="true"></span></summary><div class="evb"><dl class="ei"><div><dt>참가</dt><dd>팀당 30명 (남 15 · 여 15)</dd></div><div><dt>방식</dt><dd>3개 줄 동시 진행 · 단판 승부</dd></div></dl><h4 class="bh">전체 대진</h4><svg class="tree" viewBox="0 0 320 300" role="img" aria-label="줄다리기 전체 대진 구조"><g opacity="1"><rect x="7.0" y="18" width="153.2" height="32" rx="9" fill="#FBE9D4"/><text x="83.6" y="12" class="tl">예선 1회차 · 3경기 동시</text><rect x="159.7" y="18" width="153.2" height="32" rx="9" fill="#E6EADB"/><text x="236.3" y="12" class="tl">예선 2회차 · 3경기 동시</text><rect x="9.0" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="20.0" y="38" class="tn">1</text><rect x="34.5" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="45.5" y="38" class="tn">2</text><rect x="59.9" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="70.9" y="38" class="tn">3</text><rect x="85.3" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="96.3" y="38" class="tn">4</text><rect x="110.8" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="121.8" y="38" class="tn">5</text><rect x="136.2" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="147.2" y="38" class="tn">6</text><rect x="161.7" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="172.7" y="38" class="tn">7</text><rect x="187.2" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="198.2" y="38" class="tn">8</text><rect x="212.6" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="223.6" y="38" class="tn">9</text><rect x="238.0" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="249.0" y="38" class="tn">10</text><rect x="263.5" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="274.5" y="38" class="tn">11</text><rect x="288.9" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="299.9" y="38" class="tn">12</text><path d="M20.0 44V58H45.5V44M32.7 58V70" class="ln"/><rect x="13.7" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="32.7" y="82" class="tm">1경기</text><path d="M70.9 44V58H96.3V44M83.6 58V70" class="ln"/><rect x="64.6" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="83.6" y="82" class="tm">2경기</text><path d="M121.8 44V58H147.2V44M134.5 58V70" class="ln"/><rect x="115.5" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="134.5" y="82" class="tm">3경기</text><path d="M172.7 44V58H198.2V44M185.4 58V70" class="ln"/><rect x="166.4" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="185.4" y="82" class="tm">4경기</text><path d="M223.6 44V58H249.0V44M236.3 58V70" class="ln"/><rect x="217.3" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="236.3" y="82" class="tm">5경기</text><path d="M274.5 44V58H299.9V44M287.2 58V70" class="ln"/><rect x="268.2" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="287.2" y="82" class="tm">6경기</text><path d="M32.7 87V100H83.6V87M58.2 100V112" class="ln"/><rect x="24.2" y="112" width="68" height="19" rx="9.5" fill="#7D2621"/><text x="58.2" y="125.5" class="tw">준준결승 1</text><path d="M134.5 87V100H185.4V87M160.0 100V112" class="ln"/><rect x="126.0" y="112" width="68" height="19" rx="9.5" fill="#7D2621"/><text x="160.0" y="125.5" class="tw">준준결승 2</text><path d="M236.3 87V100H287.2V87M261.8 100V112" class="ln"/><rect x="227.8" y="112" width="68" height="19" rx="9.5" fill="#7D2621"/><text x="261.8" y="125.5" class="tw">준준결승 3</text></g><path d="M6 150H314" stroke="#C9B49B" stroke-dasharray="4 4"/><text x="10" y="145" class="ts" text-anchor="start">오전</text><text x="10" y="163" class="ts" text-anchor="start">오후</text><g opacity=".35"><path d="M58.2 131V172" class="ln"/><path d="M160.0 131V172" class="ln"/><path d="M261.8 131V172" class="ln"/><path d="M58.2 172H261.8" class="ln"/><path d="M160 172V180" class="ln"/><rect x="85" y="180" width="150" height="24" rx="12" fill="#C83A2E"/><text x="160" y="196" class="tw">부전승 결정전 · 3팀</text><path d="M120 204V222M200 204V222" class="ln"/><rect x="50" y="222" width="110" height="22" rx="11" fill="#fff" stroke="#E2CDB4"/><text x="105" y="237" class="tm">1위 · 결승 직행</text><rect x="170" y="222" width="110" height="22" rx="11" fill="#fff" stroke="#E2CDB4"/><text x="225" y="237" class="tm">준결승 · 2위 vs 3위</text><path d="M105 244V258H225V244M160 258V266" class="ln"/><rect x="110" y="266" width="100" height="26" rx="13" fill="#E9B949"/><text x="160" y="283.5" class="tf">결승</text></g></svg><h4 class="bh">예선 · 우리 팀은 언제, 누구와?</h4><div class="rd r1"><h5>예선 1회차 <span>3경기 동시</span></h5><div class="mt"><span class="mn">1경기</span><em>AI·로봇</em><i>VS</i><em>연구융합지원</em></div><div class="mt"><span class="mn">2경기</span><em>뇌과학</em><i>VS</i><em>차세대반도체</em></div><div class="mt"><span class="mn">3경기</span><em>기후환경</em><i>VS</i><em>전북분원</em></div></div><div class="rd r2"><h5>예선 2회차 <span>3경기 동시</span></h5><div class="mt"><span class="mn">4경기</span><em class="lg">연구지원(행정)</em><i>VS</i><em class="lg">바이오·메디컬</em></div><div class="mt"><span class="mn">5경기</span><em>강릉분원</em><i>VS</i><em class="lg">지속가능미래기술</em></div><div class="mt"><span class="mn">6경기</span><em>청정수소융합</em><i>VS</i><em>첨단소재</em></div></div><div class="rd r3"><h5>준준결승 <span>3경기 동시</span></h5><div class="mt"><span class="mn">준준 1</span><em class="ph">1경기 승자</em><i>VS</i><em class="ph">2경기 승자</em></div><div class="mt"><span class="mn">준준 2</span><em class="ph">3경기 승자</em><i>VS</i><em class="ph">4경기 승자</em></div><div class="mt"><span class="mn">준준 3</span><em class="ph">5경기 승자</em><i>VS</i><em class="ph">6경기 승자</em></div></div><p class="bnote">준준결승 승리 3팀이 오후 무대로 올라가요.</p></div></details><details class="evd"><summary><span class="ic" style="background:#E6A16B;color:#fff">5</span><div class="tx"><div class="n">비전탑 쌓기</div><div class="s">도열 인원 전원</div></div><span class="chev" aria-hidden="true"></span></summary><div class="evb"><dl class="ei"><div><dt>참가</dt><dd>도열 인원 전원</dd></div><div><dt>방식</dt><dd>12팀 동시 · 제한시간 안에 가장 높은 탑</dd></div><div><dt>문구</dt><dd>소본부마다 한 단어씩 맡아 탑을 세워요 (팀컬러)</dd></div></dl><h4 class="bh">12개 탑이 만드는 한 문장</h4><div class="words"><span style="color:#414F6F">2026</span><span style="color:#5609A4">KIST</span><span style="color:#FD4700">개원</span><span style="color:#DA9E56">60주년</span><span style="color:#C782F3">RE</span><span class=lt style="color:#42C7FF">TURN</span><span class=lt style="color:#BEFD28">TO</span><span class=lt style="color:#FEF100">YOU</span><span class=lt style="color:#FFFFFF">다시</span><span style="color:#111111">국민과</span><span style="color:#197556">미래를</span><span style="color:#D81203">향해</span></div><p class="bnote">완성 후 12개 탑을 문구 순서대로 세워 드론으로 단체사진을 찍어요.</p></div></details><div class="part">오후</div><details class="evd"><summary><span class="ic" style="background:var(--bur);color:#fff">6</span><div class="tx"><div class="n">줄다리기<span class="when3">오후</span></div><div class="s">준결승 · 결승</div></div><span class="bk">대진표</span><span class="chev" aria-hidden="true"></span></summary><div class="evb"><dl class="ei"><div><dt>참가</dt><dd>오전 준준결승 승리 3팀</dd></div><div><dt>방식</dt><dd>부전승 결정전 → 준결승 → 결승</dd></div></dl><h4 class="bh">전체 대진</h4><svg class="tree" viewBox="0 0 320 300" role="img" aria-label="줄다리기 전체 대진 구조"><g opacity=".35"><rect x="7.0" y="18" width="153.2" height="32" rx="9" fill="#FBE9D4"/><text x="83.6" y="12" class="tl">예선 1회차 · 3경기 동시</text><rect x="159.7" y="18" width="153.2" height="32" rx="9" fill="#E6EADB"/><text x="236.3" y="12" class="tl">예선 2회차 · 3경기 동시</text><rect x="9.0" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="20.0" y="38" class="tn">1</text><rect x="34.5" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="45.5" y="38" class="tn">2</text><rect x="59.9" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="70.9" y="38" class="tn">3</text><rect x="85.3" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="96.3" y="38" class="tn">4</text><rect x="110.8" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="121.8" y="38" class="tn">5</text><rect x="136.2" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="147.2" y="38" class="tn">6</text><rect x="161.7" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="172.7" y="38" class="tn">7</text><rect x="187.2" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="198.2" y="38" class="tn">8</text><rect x="212.6" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="223.6" y="38" class="tn">9</text><rect x="238.0" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="249.0" y="38" class="tn">10</text><rect x="263.5" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="274.5" y="38" class="tn">11</text><rect x="288.9" y="24" width="22" height="20" rx="5" fill="#fff" stroke="#E2CDB4"/><text x="299.9" y="38" class="tn">12</text><path d="M20.0 44V58H45.5V44M32.7 58V70" class="ln"/><rect x="13.7" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="32.7" y="82" class="tm">1경기</text><path d="M70.9 44V58H96.3V44M83.6 58V70" class="ln"/><rect x="64.6" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="83.6" y="82" class="tm">2경기</text><path d="M121.8 44V58H147.2V44M134.5 58V70" class="ln"/><rect x="115.5" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="134.5" y="82" class="tm">3경기</text><path d="M172.7 44V58H198.2V44M185.4 58V70" class="ln"/><rect x="166.4" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="185.4" y="82" class="tm">4경기</text><path d="M223.6 44V58H249.0V44M236.3 58V70" class="ln"/><rect x="217.3" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="236.3" y="82" class="tm">5경기</text><path d="M274.5 44V58H299.9V44M287.2 58V70" class="ln"/><rect x="268.2" y="70" width="38" height="17" rx="8.5" fill="#F3DCC4"/><text x="287.2" y="82" class="tm">6경기</text><path d="M32.7 87V100H83.6V87M58.2 100V112" class="ln"/><rect x="24.2" y="112" width="68" height="19" rx="9.5" fill="#7D2621"/><text x="58.2" y="125.5" class="tw">준준결승 1</text><path d="M134.5 87V100H185.4V87M160.0 100V112" class="ln"/><rect x="126.0" y="112" width="68" height="19" rx="9.5" fill="#7D2621"/><text x="160.0" y="125.5" class="tw">준준결승 2</text><path d="M236.3 87V100H287.2V87M261.8 100V112" class="ln"/><rect x="227.8" y="112" width="68" height="19" rx="9.5" fill="#7D2621"/><text x="261.8" y="125.5" class="tw">준준결승 3</text></g><path d="M6 150H314" stroke="#C9B49B" stroke-dasharray="4 4"/><text x="10" y="145" class="ts" text-anchor="start">오전</text><text x="10" y="163" class="ts" text-anchor="start">오후</text><g opacity="1"><path d="M58.2 131V172" class="ln"/><path d="M160.0 131V172" class="ln"/><path d="M261.8 131V172" class="ln"/><path d="M58.2 172H261.8" class="ln"/><path d="M160 172V180" class="ln"/><rect x="85" y="180" width="150" height="24" rx="12" fill="#C83A2E"/><text x="160" y="196" class="tw">부전승 결정전 · 3팀</text><path d="M120 204V222M200 204V222" class="ln"/><rect x="50" y="222" width="110" height="22" rx="11" fill="#fff" stroke="#E2CDB4"/><text x="105" y="237" class="tm">1위 · 결승 직행</text><rect x="170" y="222" width="110" height="22" rx="11" fill="#fff" stroke="#E2CDB4"/><text x="225" y="237" class="tm">준결승 · 2위 vs 3위</text><path d="M105 244V258H225V244M160 258V266" class="ln"/><rect x="110" y="266" width="100" height="26" rx="13" fill="#E9B949"/><text x="160" y="283.5" class="tf">결승</text></g></svg><ol class="steps2"><li><b>부전승 결정전</b>팀별 대표 4인 제기차기</li><li><b>준결승</b>1위 팀은 결승 직행, 2위 vs 3위 대결</li><li><b>결승</b>부전승 팀 vs 준결승 승리 팀</li></ol></div></details></div>
-      </div>
-    </section>
-
-    <section class="sec" id="games">
-      <img loading="lazy" decoding="async" width="868" height="320" class="art" src="assets/hop-90fe0bbe.webp" alt="" aria-hidden="true">
-      <div class="card">
-        <div class="head"><span class="eyebrow">MINI OLYMPIC · 점심</span><h3>잔디마당 미니게임</h3><p>점심시간 동안 잔디마당에 미니게임 부스 6곳이 열려요.<br>누구나 자유롭게 참여하세요.</p></div>
-        <div class="stamp"><div class="dots" aria-hidden="true"><i class="on">✓</i><i class="on">✓</i><i></i><i></i><i></i><i></i></div><div><b>도장 2개 = 키캡 키링</b><span>6종목 중 2종목 이상 성공 시 무대 우측 경품교환처에서 상품을 받아가세요!</span></div></div>
-        <div class="games"><div class="g"><span class="no">GAME 1</span><span class="n">축구다트</span><span class="s">공을 차서 다트판에 명중</span></div><div class="g"><span class="no">GAME 2</span><span class="n">핑퐁토스</span><span class="s">탁구공을 컵에 골인</span></div><div class="g"><span class="no">GAME 3</span><span class="n">3단 농구</span><span class="s">3단 골대에 농구공을 던져 골인</span></div><div class="g"><span class="no">GAME 4</span><span class="n">해머게임</span><span class="s">힘껏 내리쳐 최고 점수</span></div><div class="g"><span class="no">GAME 5</span><span class="n">도전! 스틱잡기</span><span class="s">랜덤으로 낙하하는 10개 스틱 잡기</span></div><div class="g"><span class="no">GAME 6</span><span class="n">스톱워치</span><span class="s">6.60초에 딱 맞춰 멈추기</span></div></div>
-      </div>
-    </section>
-
-    <section class="sec" id="lunch">
-      <div class="lunchart" aria-hidden="true"><svg class="bowl" viewBox="0 0 320 210" role="img" aria-label="나주곰탕 한 그릇">
-<g fill="none" stroke="#FFF8EE" stroke-width="5" stroke-linecap="round" opacity=".9"><path d="M118 62c-10-14 10-22 0-36"/><path d="M160 54c-10-14 10-22 0-38"/><path d="M202 62c-10-14 10-22 0-36"/></g>
-<ellipse cx="160" cy="184" rx="128" ry="16" fill="#4A2C20" opacity=".18"/>
-<path d="M58 96h204l-18 74q-4 14-18 14H94q-14 0-18-14z" fill="#5A3326"/>
-<path d="M66 112h188" stroke="#7A4A36" stroke-width="5"/><path d="M72 132h176" stroke="#4A2A1F" stroke-width="3" opacity=".6"/>
-<ellipse cx="160" cy="96" rx="106" ry="26" fill="#6E4030"/>
-<ellipse cx="160" cy="96" rx="94" ry="20" fill="#F6EBDD"/>
-<ellipse cx="148" cy="94" rx="58" ry="10" fill="#FFF8EE" opacity=".8"/>
-<g fill="#B8735A" stroke="#8E4E3B" stroke-width="1.5"><path d="M104 92q18-12 40-4q-6 10-40 4z"/><path d="M150 100q20-14 44-6q-8 12-44 6z"/><path d="M180 86q16-9 34-2q-6 8-34 2z"/></g>
-<g fill="#7DAA4B"><circle cx="128" cy="100" r="5"/><circle cx="172" cy="90" r="4.5"/><circle cx="200" cy="100" r="5"/><circle cx="140" cy="86" r="4"/><circle cx="118" cy="86" r="3.5"/></g>
-<g fill="#F6EBDD"><circle cx="128" cy="100" r="2"/><circle cx="172" cy="90" r="1.8"/><circle cx="200" cy="100" r="2"/><circle cx="140" cy="86" r="1.6"/></g>
-<ellipse cx="282" cy="168" rx="30" ry="10" fill="#FFF8EE" stroke="#E9D3BC" stroke-width="2"/>
-<g fill="#D9472F" stroke="#B5352A" stroke-width="1"><rect x="266" y="152" width="12" height="12" rx="2" transform="rotate(-10 272 158)"/><rect x="280" y="150" width="12" height="12" rx="2" transform="rotate(12 286 156)"/><rect x="290" y="158" width="11" height="11" rx="2"/></g>
-<g transform="rotate(-18 36 160)"><ellipse cx="36" cy="150" rx="12" ry="8" fill="#C9B49B"/><rect x="34" y="156" width="4" height="46" rx="2" fill="#C9B49B"/></g>
-</svg></div>
-      <div class="card">
-        <div class="head"><span class="eyebrow">LUNCH</span><h3>체육대회 특식 · 나주곰탕</h3><p>풀무원과 KIST가 함께 준비한 따끈한 나주곰탕이에요.</p></div>
-        <dl class="ei lei"><div><dt>장소</dt><dd>대식당 · 외빈식당</dd></div><div><dt>운영</dt><dd>대식당 11:20 ~ 13:30 <small>(A·B코너만 운영)</small>외빈식당 11:30 ~ 13:00</dd></div></dl>
-        <div class="stamp lstamp"><div><b>점심은 소본부별 순서대로!</b><span class="l1">줄 서지 않고 따뜻하게 드시도록 나눠 입장해요.</span><span class="l1">우리 소본부 시간에 맞춰 식당으로 와 주세요.</span></div></div>
-        <h4 class="bh">소본부별 식사 시간</h4>
-        <div class="ltable"><div class="lr"><div class="lt"><b class="r1">1차</b><span class="tn">11:30<i>~</i>12:00</span></div><div class="lteams"><span>바이오·메디컬</span><span>강릉분원</span><span>전북분원</span></div></div><div class="lr"><div class="lt"><b class="r2">2차</b><span class="tn">12:00<i>~</i>12:30</span></div><div class="lteams"><span>차세대반도체</span><span>기후환경</span><span>첨단소재</span></div></div><div class="lr"><div class="lt"><b class="r3">3차</b><span class="tn">12:30<i>~</i>13:00</span></div><div class="lteams"><span>AI·로봇</span><span>청정수소융합</span><span>연구지원(행정)</span></div></div><div class="lr"><div class="lt"><b class="r4">4차</b><span class="tn">13:00<i>~</i>13:30</span></div><div class="lteams"><span>뇌과학</span><span>지속가능미래기술</span><span>연구융합지원</span></div></div></div>
-        
-      </div>
-    </section>
-
-    <section class="sec" id="food">
-      <img loading="lazy" decoding="async" width="746" height="486" class="art" src="assets/truck-8ff721e5.webp" alt="" aria-hidden="true" style="width:64%">
-      <div class="card">
-        <div class="head"><span class="eyebrow">FOOD TRUCK</span><h3>푸드트럭</h3></div>
-        <div class="trucks tk"><div class="tr"><div class="tl"><span class="no">TRUCK 1</span><div class="n">츄러스 & 아이스크림</div></div><ul class="pm"><li><span>소프트아이스크림</span><b class="tn">4,000원</b></li><li><span>츄러스</span><b class="tn">4,000원</b></li><li><span>아이스크림+츄러스</span><b class="tn">7,000원</b></li></ul></div><div class="tr"><div class="tl"><span class="no">TRUCK 2</span><div class="n">닭강정</div></div><ul class="pm"><li><span>중</span><b class="tn">8,000원</b></li><li><span>대</span><b class="tn">12,000원</b></li></ul></div><div class="tr"><div class="tl"><span class="no">TRUCK 3</span><div class="n">타코야끼</div></div><ul class="pm"><li><span>타코야끼 (8알)</span><b class="tn">4,000원</b></li></ul></div><div class="tr"><div class="tl"><span class="no">TRUCK 4</span><div class="n">핫도그 & 소떡소떡</div></div><ul class="pm"><li><span>페스츄리 핫도그</span><b class="tn">4,000원</b></li><li><span>소떡소떡</span><b class="tn">4,000원</b></li></ul></div><div class="tr"><div class="tl"><span class="no">TRUCK 5</span><div class="n">떡볶이 & 어묵</div></div><ul class="pm"><li><span>떡볶이</span><b class="tn">4,000원</b></li><li><span>꼬치어묵 (3꼬치)</span><b class="tn">4,000원</b></li></ul></div><div class="tr"><div class="tl"><span class="no">TRUCK 6</span><div class="n">생맥주</div></div><ul class="pm"><li><span>카스 생맥주 14oz</span><b class="tn">4,000원</b></li></ul></div></div>
-      </div>
-    </section>
-
-    <section class="sec" id="stage">
-      <img loading="lazy" decoding="async" width="527" height="368" class="art sm" src="assets/stage-98f37789.webp" alt="" aria-hidden="true">
-      <div class="card">
-        <div class="head"><span class="eyebrow">AFTERNOON · 14:00 ~</span><h3>오후 무대</h3></div>
-        <div class="show tn">
-          <div class="act"><span class="t">14:00</span><div><div class="n">개원 60주년 O·X 퀴즈</div><div class="s">레크리에이션 · 상품 증정 · 잔디마당 메인</div></div></div>
-          <div class="act"><span class="t">14:20</span><div><div class="n">축하공연 ① <span class="nw">KIST K-밴드</span></div><div class="m">마이너리비전</div><div class="s">차세대반도체·첨단소재 학생연구원</div></div></div>
-          <div class="act"><span class="t">14:40</span><div><div class="n">축하공연 ② <span class="nw">출연연 연합밴드</span></div><div class="m">OneST <span class="nw">(One Sound Together)</span></div><div class="s">생기연 · 국보연 · KIST · KISTI 연합밴드</div></div></div>
+        <div class="head"><span class="eyebrow">THANK YOU</span><h3>함께해 주셔서 감사합니다</h3></div>
+        <div class="thx">
+          <p>개원 60주년을 맞아 마련한 2026 KIST 가을페스타가 임직원 여러분의 뜨거운 참여 속에 성황리에 마무리되었습니다.</p>
+          <p>소본부의 이름으로 함께 뛰고, 응원하고, 웃었던 하루가 &lsquo;다시! 우리! KIST Spirit!&rsquo;의 의미를 되새기는 뜻깊은 시간이 되었기를 바랍니다.</p>
+          <p>행사 준비와 진행에 힘써 주신 간사님들과 함께해 주신 모든 분께 깊이 감사드립니다.</p>
+          <p class="sign">경영관리실 총무복지팀 드림</p>
         </div>
       </div>
     </section>
 
-    <section class="sec" id="lucky">
-      <img loading="lazy" decoding="async" width="427" height="391" class="art xs" src="assets/tent_couple-5f3298ad.webp" alt="" aria-hidden="true">
+    <section class="sec">
+      <img loading="lazy" decoding="async" width="1065" height="312" class="art sm" src="assets/tug-7c3a3bc4.webp" alt="" aria-hidden="true">
       <div class="card">
-        <div class="head"><span class="eyebrow">LUCKY DRAW · 15:00 ~</span><h3>럭키드로우</h3><p>입장할 때 받은 행운권을 폐회식까지 꼭 챙겨 주세요.</p></div>
-        <div class="draw tn"><div class="tier secret"><span class="gift" aria-hidden="true"><svg viewBox="0 0 64 64"><g class="spk"><path d="M8 14l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M55 6l1.5 3.5 3.5 1.5-3.5 1.5L55 16l-1.5-3.5L50 11l3.5-1.5z"/><path d="M57 34l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"/></g><rect x="12" y="30" width="40" height="28" rx="4" fill="#E9B949"/><rect x="28" y="30" width="8" height="28" fill="#C83A2E"/><g class="lid"><rect x="9" y="22" width="46" height="10" rx="3" fill="#F2C65C"/><rect x="28" y="22" width="8" height="10" fill="#C83A2E"/><path d="M32 22c-6-10-16-8-13-2 2 4 9 3 13 2zm0 0c6-10 16-8 13-2-2 4-9 3-13 2z" fill="#C83A2E"/></g></svg></span><span class="p"><em>1등(200만원 상당) · 1명</em>1등 선물은 아직 비밀!<small>행사에 끝까지 남은 사람만 확인할 수 있어요!</small></span></div><div class="tier"><span class="r">2등</span><span class="p">스탠바이미 2 MAX</span><span class="c">1명</span></div><div class="tier"><span class="r">3등</span><span class="p">에어팟 맥스</span><span class="c">1명</span></div><div class="tier"><span class="r">4등</span><span class="p">다이슨 에어랩</span><span class="c">2명</span></div><div class="tier"><span class="r">5등</span><span class="p">웨스틴조선 아리아 식사권 (2인)</span><span class="c">4명</span></div><div class="tier"><span class="r">6등</span><span class="p">신세계 상품권 10만원</span><span class="c">15명</span></div></div>
-      </div>
-    </section>
-
-    <section class="sec" id="photo">
-      <img loading="lazy" decoding="async" width="899" height="528" class="art" src="assets/booth-c1c8d6ed.webp" alt="" aria-hidden="true" style="width:72%">
-      <div class="card">
-        <div class="head"><span class="eyebrow">PHOTO BOOTH · ~ 15:00</span><h3>포토부스</h3><p>60주년 가을, 우리 소본부의 오늘을 사진 한 장으로!<br>함께 뛰고 웃은 동료들과 그 표정 그대로 남겨 가세요.</p></div>
-        <div class="draw">
-          <div class="tier"><span class="r">위치</span><span class="p">메인무대 우측</span><span class="c"></span></div>
-          <div class="tier"><span class="r">시간</span><span class="p tn">09:00 ~ 15:00</span><span class="c"></span></div>
-          <div class="tier"><span class="r">이용</span><span class="p">운영 시간 내 자유롭게 이용</span><span class="c"></span></div>
+        <div class="head"><span class="eyebrow">RESULT</span><h3>그날의 기록</h3></div>
+        <div class="facts tn">
+          <div class="fact"><span class="k">일시</span><span class="v">2026. 10. 16.(금)<small>09:00 ~ 16:00</small></span></div>
+          <div class="fact"><span class="k">장소</span><span class="v">KIST 잔디마당</span></div>
+          <div class="fact big"><span class="k">참여 인원</span><span class="v">2,434<small>명</small></span></div>
+        </div>
+        <div class="rank">
+          <span class="k">소본부 대항전 종합 순위</span>
+          <ol>
+            <li class="r1"><span class="m">1등</span><span class="tm"><span class="dot" style="background:#D81203"></span>전북분원</span></li>
+            <li class="r2"><span class="m">2등</span><span class="tm"><span class="dot" style="background:#414F6F"></span>차세대반도체연구소</span></li>
+            <li class="r3"><span class="m">3등</span><span class="tm"><span class="dot" style="background:#5609A4"></span>AI·로봇연구소</span></li>
+          </ol>
         </div>
       </div>
     </section>
@@ -459,15 +426,9 @@ em.ph{font-family:'GmarketM',sans-serif;color:var(--mute)}
 
   <footer class="foot">
     <div class="strip" aria-hidden="true"><div class="rail"><img loading="lazy" decoding="async" width="4424" height="548" src="assets/strip-521bc9cd.webp" alt=""><img loading="lazy" decoding="async" width="4424" height="548" src="assets/strip-521bc9cd.webp" alt=""></div></div>
-    <div class="credit"><b>다시! 우리! KIST Spirit!</b>개원 60주년 기념 2026 KIST 가을페스타<br>주관 경영관리실 총무복지팀<span class="ver">최종 업데이트 2026.10.16(금) 12:47</span></div>
+    <div class="credit"><b>다시! 우리! KIST Spirit!</b>개원 60주년 기념 2026 KIST 가을페스타<br>주관 경영관리실 총무복지팀<span class="closed">행사 안내 페이지 운영을 마쳤습니다</span><span class="ver">최종 업데이트 2026.10.19(월) 20:59</span></div>
   </footer>
 </div>
-<script>const links=[...document.querySelectorAll('.nav a')];
-const owns=(a,id)=>(a.dataset.s||a.getAttribute('href').slice(1)).split(' ').includes(id);
-const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(!e.isIntersecting)return;
-  links.forEach(a=>a.classList.toggle('on',owns(a,e.target.id)));
-}),{rootMargin:'-45% 0px -50% 0px'});
-document.querySelectorAll('.sec').forEach(s=>io.observe(s));
-</script>
+
+
 </html>
