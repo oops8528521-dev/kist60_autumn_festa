@@ -85,6 +85,9 @@ main{display:flex;flex-direction:column;gap:36px;min-width:0}
 .shot img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover}
 .shot{grid-column:span var(--sp,1)}
 .shot:first-child{grid-column:span 2;grid-row:span 2}
+.shots.two .shot:first-child{grid-row:auto}
+.shots.two .shot.big2{grid-column:span 2}
+.shots.two .shot.big2 img{aspect-ratio:4/3}
 .shot .lab{position:absolute;left:6px;bottom:6px;max-width:calc(100% - 12px);font-family:var(--f-ui);font-size:12px;color:#fff;background:rgba(74,44,32,.62);border-radius:6px;padding:2px 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pk-h{grid-column:1/-1;margin:14px 0 2px;font-family:var(--f-uib);font-size:14px;color:var(--tom)}
 .pickets{grid-column:1/-1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
@@ -396,7 +399,9 @@ const fmtDur=s=>`${Math.floor(s/60)}:${pad(Math.round(s%60))}`;
 {const all=Object.values(M).flat(),p=all.filter(x=>x.t==='p').length;$('gCnt').innerHTML=`${D.reviews.length}건<small>사진 ${p} · 영상 ${all.length-p}</small>`;}
 /* 공식 사진 */
 const P=window.JUDGE_PHOTOS;
-function spans(n){const d=Array(n).fill(1),m=Array(n).fill(1);const r=n-1;
+function spans(n,big){if(big===2){return [Array.from({length:n},(_,k)=>k<2?'b':(n-2)%4&&k>=n-((n-2)%4)?(4/((n-2)%4)|0):1),Array.from({length:n},(_,k)=>k<2?2:((n-2)%2&&k===n-1?2:1))];}
+  return spans1(n);}
+function spans1(n){const d=Array(n).fill(1),m=Array(n).fill(1);const r=n-1;
   if(r>0&&r<4){if(r===3)d[3]=2;if(r===2){d[1]=2;d[2]=2;}if(r===1)d[1]=2;}
   if(r>4){const t=(r-4)%4;if(t===1)d[n-1]=4;if(t===2){d[n-1]=2;d[n-2]=2;}if(t===3)d[n-3]=2;}
   if(r%2===1)m[n-1]=2;return [d,m];}
@@ -404,7 +409,7 @@ const toItem=p=>({src:`photos/${p.f}`,th:`photos/t/${p.f}`,cap:p.cap});
 const PH=i=>{const c=D.chapters[i];return P.filter(p=>p.ch===c.f).map(toItem).concat(c.pk?P.filter(p=>p.ch===c.pk).map(toItem):[]);};
 $('mPh').textContent=`${P.length}장`;
 $('chapters').innerHTML=D.chapters.map((c,i)=>{const main=P.filter(p=>p.ch===c.f),pk=c.pk?P.filter(p=>p.ch===c.pk):[];
-  return `<li class="ch"><div class="meta"><span class="t tn">${c.t}</span><h3>${esc(c.h)}</h3><p>${esc(c.d)}</p></div><div class="shots">${main.map((p,k)=>`<button class="shot" style="--sp:${spans(main.length)[0][k]};--spm:${spans(main.length)[1][k]}" type="button" data-ch="${i}" data-k="${k}" aria-label="${esc(p.cap)} 크게 보기"><img src="photos/t/${p.f}" alt="" loading="lazy"><span class="lab">${esc(p.cap)}</span></button>`).join('')}${pk.length?`<p class="pk-h">12개 소본부</p><div class="pickets">${pk.map((p,k)=>`<button class="pk" type="button" data-ch="${i}" data-k="${main.length+k}" aria-label="${esc(p.cap)} 크게 보기"><img src="photos/t/${p.f}" alt="" loading="lazy"><span><i style="background:${T[p.cap]||'#ccc'}"></i>${esc(p.cap)}</span></button>`).join('')}</div>`:''}</div></li>`;}).join('');
+  return `<li class="ch"><div class="meta"><span class="t tn">${c.t}</span><h3>${esc(c.h)}</h3><p>${esc(c.d)}</p></div><div class="shots${c.big===2?' two':''}">${main.map((p,k)=>`<button class="shot${c.big===2&&k<2?' big2':''}" style="--sp:${spans(main.length,c.big)[0][k]==='b'?2:spans(main.length,c.big)[0][k]};--spm:${spans(main.length,c.big)[1][k]}" type="button" data-ch="${i}" data-k="${k}" aria-label="${esc(p.cap)} 크게 보기"><img src="photos/t/${p.f}" alt="" loading="lazy"><span class="lab">${esc(p.cap)}</span></button>`).join('')}${pk.length?`<p class="pk-h">12개 소본부</p><div class="pickets">${pk.map((p,k)=>`<button class="pk" type="button" data-ch="${i}" data-k="${main.length+k}" aria-label="${esc(p.cap)} 크게 보기"><img src="photos/t/${p.f}" alt="" loading="lazy"><span><i style="background:${T[p.cap]||'#ccc'}"></i>${esc(p.cap)}</span></button>`).join('')}</div>`:''}</div></li>`;}).join('');
 /* 인생네컷: 추첨 전 자리표시 */
 $('fourGrid').innerHTML=['#7D2621','#C9971F','#737E5C','#C83A2E','#4A2C20'].map((c,i)=>`<div class="four"><div class="frame" style="background:${c}"><i></i><i></i><i></i><i></i><b>KIST 60</b></div><div class="who2"><span class="t">${i+1}번째 당첨</span><span class="n">추첨 전</span></div></div>`).join('');
 
