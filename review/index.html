@@ -33,7 +33,8 @@ img,video{max-width:100%;display:block}
 a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
 .hero{background:linear-gradient(180deg,#E7C67B 0%,#E6B581 40%,#EBBA98 62%,#E9C88A 85%,#969C76 85.2%,#96A281 100%)}
-.hero img{width:min(980px,100%);margin:0 auto;aspect-ratio:2400/900;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
+.hero picture{display:block}
+.hero img{display:block;width:min(980px,100%);height:auto;max-height:none;object-fit:contain;margin:0 auto;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
 .titlebar{background:var(--cream);box-shadow:0 5px 0 var(--lawn3)}
 .titlebar .in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding-block:14px;text-align:center}
 .kicker{display:inline-flex;align-items:center;background:var(--bur);color:var(--cream);font-family:var(--f-ui);font-size:15px;padding:5px 16px 6px;border-radius:99px}
@@ -128,6 +129,29 @@ main{display:flex;flex-direction:column;gap:36px;min-width:0}
 .who .n{font-family:var(--f-disp);font-size:16px}
 .who .t{font-family:var(--f-ui);font-size:14px;color:var(--mute)}
 .who .more{margin-left:auto;font-family:var(--f-ui);font-size:13px;color:var(--tom)}
+.rv .open{display:flex;flex-direction:column;flex:1;border:0;padding:0;background:none;text-align:left;cursor:pointer;font:inherit;color:inherit}
+.rv.on{box-shadow:0 0 0 3px var(--tom)}
+.rv .pickrow{display:flex;align-items:center;gap:8px;padding:0 18px 16px}
+.pick{font-family:var(--f-uib);font-size:15px;border:1.5px solid var(--tom);background:var(--white);color:var(--tom);border-radius:12px;padding:8px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.pick::before{content:"";width:14px;height:14px;border-radius:4px;border:2px solid currentColor;box-sizing:border-box}
+.pick[aria-pressed="true"]{background:var(--tom);color:var(--white)}
+.pick[aria-pressed="true"]::before{background:var(--white);box-shadow:inset 0 0 0 2px var(--tom)}
+.pick:disabled{cursor:default;opacity:.55}
+.pick[aria-pressed="true"]:disabled{opacity:1}
+.pickrow .hint{font-family:var(--f-ui);font-size:13px;color:var(--mute)}
+.vbar{position:fixed;left:0;right:0;bottom:0;z-index:35;background:var(--bur);color:var(--cream);box-shadow:0 -4px 14px rgba(43,24,18,.25);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.vbar .in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.vbar .c{font-family:var(--f-ui);font-size:15px}
+.vbar .c b{font-family:var(--f-disp);font-size:20px;color:var(--gold)}
+.vbar .chips{display:flex;gap:4px;flex-wrap:wrap;flex:1;min-width:0}
+.vbar .chips span{font-family:var(--f-disp);font-size:12px;background:rgba(255,248,238,.16);border-radius:6px;padding:2px 6px}
+.vbar .go{font-family:var(--f-uib);font-size:16px;border:0;border-radius:12px;padding:10px 20px;background:var(--gold);color:var(--ink);cursor:pointer;margin-left:auto}
+.vbar .go:disabled{opacity:.45;cursor:default}
+.vbar .ghost{font-family:var(--f-uib);font-size:14px;border:1.5px solid rgba(255,248,238,.6);background:transparent;color:var(--cream);border-radius:12px;padding:8px 14px;cursor:pointer}
+.vbar .msg{font-family:var(--f-ui);font-size:14px;color:#F6D9CC;flex-basis:100%;margin:0}
+.vbar .msg:empty{display:none}
+.vbar.done{background:var(--lawn3)}
+body.voting .foot{padding-bottom:84px}
 
 /* 방명록 */
 .gb{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:20px;align-items:start}
@@ -205,6 +229,7 @@ main{display:flex;flex-direction:column;gap:36px;min-width:0}
 @media (max-width:600px){
   .gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
   .side{margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)))}
+  .hero img{width:100%;-webkit-mask-image:none;mask-image:none;padding:14px 10px 0}
   .titlebar h1{font-size:21px}.kicker{font-size:13px}
   main{gap:28px}
   .card{padding:22px 16px 18px;border-radius:22px}
@@ -231,7 +256,7 @@ main{display:flex;flex-direction:column;gap:36px;min-width:0}
 <body>
 
 <header id="top">
-  <div class="hero"><img src="assets/kv_wide.webp" alt="2026 KIST 가을페스타 · 다시! 우리! KIST Spirit!" width="2400" height="900"></div>
+  <div class="hero"><picture><source media="(max-width:600px)" srcset="assets/hero.webp" width="1725" height="743"><img src="assets/kv_wide.webp" alt="2026 KIST 가을페스타 · 다시! 우리! KIST Spirit!" width="2400" height="900"></picture></div>
   <div class="titlebar"><div class="in gut"><span class="kicker">심사용 · 외부 공유 금지</span><h1>가을페스타 후기 이벤트 심사</h1></div></div>
 </header>
 
@@ -253,7 +278,7 @@ main{display:flex;flex-direction:column;gap:36px;min-width:0}
     <section class="sec" id="guide">
       <div class="card">
         <div class="head"><span class="eyebrow">FOR JUDGES · 심사위원 안내</span><h2>후기 응모 13건 중 10건을 골라 주세요</h2>
-          <p>응모해 주신 사진·영상과 후기를 원문 그대로 모았어요. 카드를 누르면 첨부 전체와 후기 전문을 볼 수 있어요. 선정 결과는 담당자에게 따로 회신해 주세요.</p></div>
+          <p>응모해 주신 사진·영상과 후기를 원문 그대로 모았어요. 카드를 누르면 첨부 전체와 후기 전문을 볼 수 있어요. 마음에 드는 10건을 골라 아래 후기 응모에서 투표해 주세요. 투표는 기기당 한 번이에요.</p></div>
         <div class="guide tn">
           <div class="gi"><span class="k">접수 기간</span><span class="v">10.21 ~ 10.26</span></div>
           <div class="gi"><span class="k">응모</span><span class="v" id="gCnt">13건</span></div>
@@ -280,7 +305,7 @@ main{display:flex;flex-direction:column;gap:36px;min-width:0}
       <img class="art" src="assets/hop.webp" alt="" aria-hidden="true">
       <div class="card">
         <div class="head"><span class="eyebrow">REVIEW EVENT · 응모 전체</span><h2>후기 응모 13건</h2>
-          <p>사진과 영상, 후기를 함께 보고 판단해 주세요.</p></div>
+          <p>사진과 영상, 후기를 함께 보고 10건을 골라 주세요. 카드 아래 <b>선택</b>을 누르면 고를 수 있고, 10건을 고르면 투표할 수 있어요.</p></div>
         <div class="filters" id="filters" role="group" aria-label="첨부 종류로 보기"></div>
         <div class="reviews" id="reviewGrid"></div>
       </div>
@@ -329,6 +354,16 @@ main{display:flex;flex-direction:column;gap:36px;min-width:0}
   </div></div>
 </footer>
 
+<div class="vbar" id="vbar" hidden role="region" aria-label="심사 투표">
+  <div class="in">
+    <span class="c tn" id="vCnt"></span>
+    <div class="chips tn" id="vChips"></div>
+    <button class="ghost" type="button" id="vBack" hidden>다시 고르기</button>
+    <button class="go" type="button" id="vGo" disabled>투표하기</button>
+    <p class="msg" id="vMsg" role="status" aria-live="polite"></p>
+  </div>
+</div>
+
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="크게 보기">
   <div class="lbc" id="lbc">
     <button class="x" type="button" id="lbX">닫기</button>
@@ -341,6 +376,7 @@ main{display:flex;flex-direction:column;gap:36px;min-width:0}
       <div class="who"><span class="no tn" id="lbNo"></span><span class="dot" id="lbDot"></span><span class="n" id="lbName"></span><span class="t" id="lbOrg"></span></div>
       <p class="q" id="lbQ"></p>
       <p class="nt" id="lbNt"></p>
+      <div><button class="pick" type="button" id="lbPick">선택</button></div>
     </div>
   </div>
 </div>
@@ -375,14 +411,53 @@ $('fourGrid').innerHTML=['#7D2621','#C9971F','#737E5C','#C83A2E','#4A2C20'].map(
 /* 후기 카드 */
 const cnt=m=>{const p=m.filter(x=>x.t==='p').length,v=m.length-p;return [p?`사진 ${p}`:'',v?`영상 ${v}`:''].filter(Boolean).join(' · ');};
 const tile=x=>`<div class="m"><img src="${x.th}" alt="" loading="lazy">${x.t==='v'?`<span class="play"></span><span class="dur tn">${fmtDur(x.dur)}</span>`:''}</div>`;
+/* 심사 투표: 기기당 1회, 13건 중 10건 */
+const VAPI='/api/vote',NEED=D.pick||10;
+let picks=new Set(),voted=null,vdemo=false,curRev=null,confirming=false;
+const getDev=()=>{let d=null;try{d=localStorage.getItem('jdev');}catch(e){}if(!d){const m=document.cookie.match(/(?:^|; )jdev=([^;]+)/);d=m&&m[1];}
+  if(!d){d=(crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2));}
+  try{localStorage.setItem('jdev',d);}catch(e){}document.cookie=`jdev=${d};max-age=31536000;path=/;SameSite=Lax`;return d;};
+const DEV=getDev();
 let filter='전체';
 const FILTERS=['전체','영상 포함','사진만'];
 function drawReviews(){
   $('filters').innerHTML=FILTERS.map(f=>`<button type="button" aria-pressed="${f===filter}" data-f="${f}">${f}</button>`).join('');
   const list=D.reviews.filter(r=>{const v=M[r.no].some(x=>x.t==='v');return filter==='전체'||(filter==='영상 포함'?v:!v);});
-  $('reviewGrid').innerHTML=list.map(r=>{const m=M[r.no];return `<button class="rv" type="button" data-no="${r.no}"><div class="strip3 n${Math.min(m.length,3)}">${m.slice(0,3).map(tile).join('')}</div><div class="body"><div class="top"><span class="no tn">${pad(r.no)}</span><span class="cnt tn">${cnt(m)}</span></div><p class="q">${esc(r.text)}</p><div class="who"><span class="dot" style="background:${T[r.team]}"></span><span class="n">${esc(r.name)}</span><span class="t">${esc(r.team)} · ${esc(r.org)}</span><span class="more">전문 보기</span></div></div></button>`;}).join('');
+  $('reviewGrid').innerHTML=list.map(r=>{const m=M[r.no];return `<article class="rv${picks.has(r.no)?' on':''}" data-no="${r.no}"><button class="open" type="button" aria-label="${pad(r.no)} ${esc(r.name)} 후기 전문 보기"><div class="strip3 n${Math.min(m.length,3)}">${m.slice(0,3).map(tile).join('')}</div><div class="body"><div class="top"><span class="no tn">${pad(r.no)}</span><span class="cnt tn">${cnt(m)}</span></div><p class="q">${esc(r.text)}</p><div class="who"><span class="dot" style="background:${T[r.team]}"></span><span class="n">${esc(r.name)}</span><span class="t">${esc(r.team)} · ${esc(r.org)}</span><span class="more">전문 보기</span></div></div></button><div class="pickrow"><button class="pick" type="button" data-pick="${r.no}" aria-pressed="${picks.has(r.no)}"${voted?' disabled':''}>${picks.has(r.no)?'선택함':'선택'}</button></div></article>`;}).join('');
 }
-drawReviews();
+function drawBar(){
+  const vb=$('vbar');vb.hidden=false;document.body.classList.add('voting');
+  const list=[...picks].sort((a,b)=>a-b);
+  $('vChips').innerHTML=list.map(n=>`<span>${pad(n)}</span>`).join('');
+  vb.classList.toggle('done',!!voted);
+  if(voted){$('vCnt').innerHTML=`<b>투표 완료</b> · ${voted.at||''}`;$('vGo').hidden=true;$('vBack').hidden=true;return;}
+  $('vGo').hidden=false;
+  if(confirming){$('vCnt').innerHTML=`이 <b>${NEED}</b>건으로 투표할까요?`;$('vGo').textContent='투표 확정';$('vGo').disabled=false;$('vBack').hidden=false;$('vMsg').textContent='확정하면 이 기기에서는 다시 투표할 수 없어요.';}
+  else{$('vCnt').innerHTML=`선택 <b>${picks.size}</b> / ${NEED}`;$('vGo').textContent='투표하기';$('vGo').disabled=picks.size!==NEED;$('vBack').hidden=true;
+    if(!$('vMsg').dataset.keep)$('vMsg').textContent=picks.size>NEED?'':(picks.size===NEED?'10건을 다 골랐어요. 투표하기를 눌러 주세요.':'');}
+}
+function syncLbPick(){const b=$('lbPick');if(curRev==null)return;const on=picks.has(curRev);b.setAttribute('aria-pressed',on);b.textContent=on?'선택함':'선택';b.disabled=!!voted;}
+function togglePick(n){if(voted)return;confirming=false;$('vMsg').dataset.keep='';
+  if(picks.has(n))picks.delete(n);else{if(picks.size>=NEED){$('vMsg').textContent=`이미 ${NEED}건을 골랐어요. 하나를 빼고 다시 골라 주세요.`;$('vMsg').dataset.keep='1';drawBar();return;}picks.add(n);}
+  drawReviews();drawBar();syncLbPick();}
+$('lbPick').onclick=()=>{if(curRev!=null)togglePick(curRev);};
+$('vBack').onclick=()=>{confirming=false;$('vMsg').textContent='';drawBar();};
+$('vGo').onclick=()=>{
+  if(voted||picks.size!==NEED)return;
+  if(!confirming){confirming=true;drawBar();return;}
+  const list=[...picks].sort((a,b)=>a-b);const d=new Date(),at=`${pad(d.getMonth()+1)}.${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  const finish=()=>{voted={picks:list,at};confirming=false;if(!vdemo){try{localStorage.setItem('jvote',JSON.stringify(voted));}catch(e){}}$('vMsg').textContent=vdemo?'미리보기라 저장되지 않았어요. 실제 페이지에서는 서버에 저장돼요.':'투표했어요. 참여해 주셔서 감사합니다.';drawReviews();drawBar();syncLbPick();};
+  if(vdemo){finish();return;}
+  $('vGo').disabled=true;$('vMsg').textContent='보내는 중이에요.';
+  fetch(VAPI,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({device:DEV,picks:list})})
+    .then(r=>r.json().then(j=>({ok:r.ok,j})))
+    .then(({ok,j})=>{if(ok)return finish();if(j.error==='already'){voted={picks:j.picks||list,at:j.at||''};picks=new Set(voted.picks);try{localStorage.setItem('jvote',JSON.stringify(voted));}catch(e){}$('vMsg').textContent='이 기기에서는 이미 투표했어요.';drawReviews();drawBar();return;}throw 0;})
+    .catch(()=>{$('vGo').disabled=false;$('vMsg').textContent='투표를 보내지 못했어요. 잠시 후 다시 눌러 주세요.';});
+};
+try{const v=JSON.parse(localStorage.getItem('jvote')||'null');if(v&&v.picks){voted=v;picks=new Set(v.picks);}}catch(e){}
+fetch(VAPI+'?device='+encodeURIComponent(DEV)).then(r=>{if(!r.ok)throw 0;return r.json();}).then(j=>{if(j.voted){voted={picks:j.picks,at:j.at};picks=new Set(j.picks);try{localStorage.setItem('jvote',JSON.stringify(voted));}catch(e){}drawReviews();drawBar();}})
+  .catch(()=>{vdemo=true;});
+drawReviews();drawBar();
 $('filters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;filter=b.dataset.f;drawReviews();});
 
 /* 크게 보기 */
@@ -402,8 +477,8 @@ function open(list,k,from,rev){
   show(k);lb.hidden=false;document.body.style.overflow='hidden';$('lbX').focus();
 }
 function close(){const v=$('stageIn').querySelector('video');if(v)v.pause();lb.hidden=true;document.body.style.overflow='';last&&last.focus();}
-$('reviewGrid').addEventListener('click',e=>{const b=e.target.closest('.rv');if(!b)return;const r=D.reviews.find(x=>x.no===+b.dataset.no);
-  const m=M[r.no].map((x,j)=>({...x,cap:(r.caps&&r.caps[j])||(x.t==='v'?`영상 ${fmtDur(x.dur)}`:'')}));open(m,0,b,r);});
+$('reviewGrid').addEventListener('click',e=>{const pk=e.target.closest('.pick');if(pk){togglePick(+pk.dataset.pick);return;}const b0=e.target.closest('.open');if(!b0)return;const b=b0.closest('.rv');const r=D.reviews.find(x=>x.no===+b.dataset.no);
+  const m=M[r.no].map((x,j)=>({...x,cap:(r.caps&&r.caps[j])||(x.t==='v'?`영상 ${fmtDur(x.dur)}`:'')}));curRev=r.no;syncLbPick();open(m,0,b0,r);});
 $('scenes').addEventListener('click',e=>{const b=e.target.closest('.shot,.feature,.pk');if(!b)return;const i=+b.dataset.ch;
   const list=i<0?[{src:'photos/00_대표_비전탑단체사진.jpg',th:'photos/t/00_대표_비전탑단체사진.jpg',cap:'대표 사진 · 비전탑 단체사진'}]:PH(i);open(list,+b.dataset.k,b,null);});
 $('thumbs').addEventListener('click',e=>{const b=e.target.closest('.th');if(b)show(+b.dataset.j);});
