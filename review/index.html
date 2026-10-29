@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta charset="utf-8">
-<title>가을페스타 후기 심사</title>
+<title>가을페스타 그날의 우리</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="robots" content="noindex, nofollow">
 <style>
@@ -11,7 +11,7 @@
 @font-face{font-family:'GmarketM';src:url(assets/GmarketSansMedium.woff2) format('woff2');font-weight:500;font-display:swap}
 @font-face{font-family:'FreeB';src:url(assets/Freesentation-7Bold.woff2) format('woff2');font-weight:700;font-display:swap}
 @font-face{font-family:'FreeM';src:url(assets/Freesentation-5Medium.woff2) format('woff2');font-weight:500;font-display:swap}
-/* 레이아웃: 결과페이지 v10과 같은 결(잔디색 바탕 + 크림 카드, 버건디 메뉴). 심사위원이 휴대폰으로 보는 걸 우선해 1단 카드, PC는 좌측 메뉴 + 본문 */
+/* 레이아웃: 결과페이지 v10과 같은 결(잔디색 바탕 + 크림 카드, 버건디 메뉴). 휴대폰을 우선해 1단 카드, PC는 좌측 메뉴 + 본문 */
 :root{
   --lawn:#939E7B; --lawn3:#737E5C; --bur:#7D2621; --tom:#C83A2E; --ink:#4A2C20; --cream:#FFF8EE; --paper:#FBE9D4;
   --gold:#E9B949; --mute:#8E6E5E; --line:#EBD7C0; --white:#FFFFFF; --navtxt:#F6D9CC; --scrim:rgba(43,24,18,.72);
@@ -59,7 +59,7 @@ main{display:flex;flex-direction:column;gap:36px;min-width:0}
 .head h2{margin:0;font-family:var(--f-disp);font-size:28px;color:var(--bur);letter-spacing:-.02em;text-wrap:balance}
 .head p{margin:0;font-size:15px;color:var(--mute);line-height:1.65;max-width:62ch}
 
-/* 심사 안내 */
+/* 결과 요약 */
 .guide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .gi{background:var(--white);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
 .gi .k{font-family:var(--f-uib);font-size:13px;color:var(--tom)}
@@ -104,10 +104,57 @@ main{display:flex;flex-direction:column;gap:36px;min-width:0}
 .frame b{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-family:var(--f-ui);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.9)}
 .who2{text-align:center;display:flex;flex-direction:column;gap:2px}
 .who2 .t{font-family:var(--f-ui);font-size:13px;color:var(--mute)}
-.who2 .n{font-family:var(--f-disp);font-size:15px;color:#C9B39E}
+.who2 .n{font-family:var(--f-disp);font-size:16px;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.who2 .n .dot{width:10px;height:10px}
+.who2 .o{font-size:12.5px;color:var(--mute);line-height:1.35;word-break:keep-all}
+.fc{display:block;width:100%;max-width:150px;padding:0;border:0;background:none;cursor:pointer;border-radius:10px;overflow:hidden;box-shadow:0 4px 0 rgba(74,44,32,.18);transition:transform .15s ease}
+.fc:hover{transform:translateY(-3px)}
+.fc img{display:block;width:100%;height:auto;aspect-ratio:1/3;object-fit:cover}
 .badge{display:inline-flex;align-self:flex-start;font-family:var(--f-uib);font-size:14px;padding:5px 14px 6px;border-radius:99px;background:var(--gold);color:var(--ink)}
 .shot:hover img,.feature:hover img{filter:brightness(1.05)}
 
+/* 행사 개요 */
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:14px}
+.fact{background:var(--paper);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.fact .k{font-family:var(--f-uib);font-size:14px;color:var(--tom)}
+.fact .v{font-family:var(--f-disp);font-size:20px;color:var(--ink);letter-spacing:-.01em;line-height:1.3}
+.fact .v small{font-family:var(--f-body);font-size:14px;color:var(--mute);margin-left:4px}
+.fact .v small.blk{display:block;margin:4px 0 0}
+.fact.big{background:var(--bur)}
+.fact.big .k{color:var(--gold)}
+.fact.big .v{color:var(--white);font-size:28px}
+.fact.big .v small{color:#E9C4B8}
+.rank,.prog{background:var(--cream);border:1.5px solid var(--line);border-radius:18px;padding:18px 20px}
+.rank{margin-bottom:14px}
+.rank .k,.prog .k{display:block;font-family:var(--f-uib);font-size:14px;color:var(--tom);margin-bottom:12px}
+.pod{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:end}
+.pl{border-radius:16px;padding:16px 14px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;background:var(--paper)}
+.pl .m{font-family:var(--f-disp);font-size:15px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--white)}
+.pl .tm{display:flex;align-items:center;gap:7px;font-family:var(--f-disp);font-size:18px;color:var(--ink);line-height:1.3}
+.pl.r1{order:2;background:var(--bur);padding-block:24px 22px}
+.pl.r1 .m{background:var(--gold);color:var(--ink);width:46px;height:46px;font-size:18px}
+.pl.r1 .tm{color:var(--white);font-size:22px}
+.pl.r2{order:1}.pl.r2 .m{background:#9AA3A8}
+.pl.r3{order:3}.pl.r3 .m{background:#B07A4E}
+.pcols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pcol h3{margin:0 0 8px;font-family:var(--f-disp);font-size:16px;color:var(--bur);display:flex;align-items:baseline;gap:8px}
+.pcol h3 span{font-family:var(--f-ui);font-size:13px;color:var(--mute)}
+.pcol ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.pcol li{font-size:14.5px;line-height:1.45;padding-left:14px;position:relative}
+.pcol li::before{content:"";position:absolute;left:2px;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.pcol + .pcol{border-left:1.5px dashed var(--line);padding-left:16px}
+@media (max-width:600px){
+  .facts{grid-template-columns:1fr;gap:10px}
+  .fact .v{font-size:17px}.fact.big .v{font-size:24px}
+  .rank,.prog{padding:16px 14px}
+  .pcols{grid-template-columns:1fr;gap:14px}
+  .pod{grid-template-columns:1fr;gap:8px}
+  .pl{flex-direction:row;justify-content:flex-start;padding:12px 14px}
+  .pl.r1{order:0;padding-block:14px}.pl.r2{order:1}.pl.r3{order:2}
+  .pl .tm,.pl.r1 .tm{font-size:17px}
+  .pl.r1 .m{width:40px;height:40px;font-size:15px}
+  .pcol + .pcol{border-left:0;padding-left:0;border-top:1.5px dashed var(--line);padding-top:14px}
+}
 /* 후기 13건 */
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 .filters button{font-family:var(--f-uib);font-size:14px;border:1.5px solid var(--bur);background:transparent;color:var(--bur);border-radius:99px;padding:6px 14px;cursor:pointer}
@@ -260,7 +307,7 @@ body.voting .foot{padding-bottom:84px}
 
 <header id="top">
   <div class="hero"><picture><source media="(max-width:600px)" srcset="assets/hero.webp" width="1725" height="743"><img src="assets/kv_wide.webp" alt="2026 KIST 가을페스타 · 다시! 우리! KIST Spirit!" width="2400" height="900"></picture></div>
-  <div class="titlebar"><div class="in gut"><span class="kicker">심사용 · 외부 공유 금지</span><h1>가을페스타 후기 이벤트 심사</h1></div></div>
+  <div class="titlebar"><div class="in gut"><span class="kicker">후기 이벤트 결과</span><h1>가을페스타, 그날의 우리</h1></div></div>
 </header>
 
 <div class="layout gut">
@@ -268,9 +315,10 @@ body.voting .foot{padding-bottom:84px}
     <nav class="menu" aria-label="바로가기">
       <span class="lab">MENU</span>
       <ul>
-        <li><a href="#guide" data-s="guide">심사 안내<i>10건</i></a></li>
+        <li><a href="#guide" data-s="guide">이벤트 결과<i>15명</i></a></li>
+        <li><a href="#about" data-s="about">행사 개요<i>10.16</i></a></li>
         <li><a href="#scenes" data-s="scenes">공식 사진<i id="mPh"></i></a></li>
-        <li><a href="#reviews" data-s="reviews">후기 응모<i>13건</i></a></li>
+        <li><a href="#reviews" data-s="reviews">후기 당첨<i>10명</i></a></li>
         <li><a href="#fourcut" data-s="fourcut">인생네컷<i>5명</i></a></li>
         <li><a href="#guestbook" data-s="guestbook">방명록<i>익명</i></a></li>
       </ul>
@@ -280,14 +328,40 @@ body.voting .foot{padding-bottom:84px}
   <main>
     <section class="sec" id="guide">
       <div class="card">
-        <div class="head"><span class="eyebrow">FOR JUDGES · 심사위원 안내</span><h2>후기 응모 13건 중 10건을 골라 주세요</h2>
-          <p>응모해 주신 사진·영상과 후기를 원문 그대로 모았어요. 카드를 누르면 첨부 전체와 후기 전문을 볼 수 있어요. 마음에 드는 10건을 골라 아래 후기 응모에서 투표해 주세요. 투표는 기기당 한 번이에요.</p></div>
+        <div class="head"><span class="eyebrow">REVIEW EVENT · 결과 발표</span><h2>후기 이벤트 당첨자 발표</h2>
+          <p>그날의 장면을 보내 주신 모든 분께 감사드려요. 후기 13건 가운데 10건을 심사로 골랐고, 인생네컷은 응모자 가운데 5명을 추첨했어요.</p></div>
         <div class="guide tn">
-          <div class="gi"><span class="k">접수 기간</span><span class="v">10.21 ~ 10.26</span></div>
-          <div class="gi"><span class="k">응모</span><span class="v" id="gCnt">13건</span></div>
-          <div class="gi big"><span class="k">선정</span><span class="v">10건<small>신세계 상품권 5만원</small></span></div>
+          <div class="gi"><span class="k">후기 이벤트</span><span class="v">10명<small>심사 선정</small></span></div>
+          <div class="gi"><span class="k">인생네컷</span><span class="v">5명<small>추첨</small></span></div>
+          <div class="gi big"><span class="k">상품</span><span class="v">신세계 상품권<small>5만원</small></span></div>
         </div>
-        <p class="gnote">번호는 접수 순서예요. 영상은 휴대폰에서도 보기 쉽게 화질을 줄였어요. 원본은 담당자가 보관하고 있어요.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="about">
+      <div class="card">
+        <div class="head"><span class="eyebrow">ABOUT · 행사 개요</span><h2>2026 KIST 가을페스타</h2></div>
+        <div class="facts tn">
+          <div class="fact"><span class="k">일시</span><span class="v">2026. 10. 16.(금)<small class="blk">09:00 ~ 16:00</small></span></div>
+          <div class="fact"><span class="k">장소</span><span class="v">KIST 잔디마당</span></div>
+          <div class="fact big"><span class="k">참여 인원</span><span class="v">2,434<small>명</small></span></div>
+        </div>
+        <div class="rank">
+          <span class="k">소본부 대항전 종합 순위</span>
+          <div class="pod">
+            <div class="pl r1"><span class="m">1등</span><span class="tm"><span class="dot" style="background:#D81203"></span>전북분원</span></div>
+            <div class="pl r2"><span class="m">2등</span><span class="tm"><span class="dot" style="background:#414F6F"></span>차세대반도체연구소</span></div>
+            <div class="pl r3"><span class="m">3등</span><span class="tm"><span class="dot" style="background:#5609A4"></span>AI·로봇연구소</span></div>
+          </div>
+        </div>
+        <div class="prog">
+          <span class="k">주요 프로그램</span>
+          <div class="pcols">
+            <div class="pcol"><h3>오전<span>소본부 대항전</span></h3><ul><li>대형 애드벌룬 릴레이</li><li>에어사다리 릴레이</li><li>줄다리기 예선 · 준준결승</li><li>비전탑 쌓기</li></ul></div>
+            <div class="pcol"><h3>점심<span>잔디마당</span></h3><ul><li>체육대회 특식 나주곰탕</li><li>푸드트럭 6대</li><li>잔디마당 미니게임 6종</li><li>포토부스 인생네컷</li></ul></div>
+            <div class="pcol"><h3>오후<span>메인무대</span></h3><ul><li>줄다리기 준결승 · 결승</li><li>개원 60주년 O·X 퀴즈</li><li>마이너리비전 · OneST 공연</li><li>럭키드로우 · 시상 · 폐회</li></ul></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -295,7 +369,7 @@ body.voting .foot{padding-bottom:84px}
       <img class="art" src="assets/tents.webp" alt="" aria-hidden="true">
       <div class="card">
         <div class="head"><span class="eyebrow">OFFICIAL PHOTOS · 행사 사진</span><h2>그날의 장면</h2>
-          <p id="phNote">결과 페이지에 실을 공식 사진이에요. 사진을 누르면 크게 볼 수 있어요.</p></div>
+          <p id="phNote">사진을 누르면 크게 볼 수 있어요.</p></div>
         <button class="feature" type="button" data-ch="-1" data-k="0">
           <img src="photos/t/00_대표_비전탑단체사진.jpg" alt="비전탑 12개를 세우고 찍은 단체사진" loading="lazy">
           <div class="ftxt"><b>12개 탑이 만든 한 문장</b><span>2026 KIST 개원 60주년 RE:TURN TO YOU 다시 국민과 미래를 향해</span></div>
@@ -307,8 +381,8 @@ body.voting .foot{padding-bottom:84px}
     <section class="sec" id="reviews">
       <img class="art" src="assets/hop.webp" alt="" aria-hidden="true">
       <div class="card">
-        <div class="head"><span class="eyebrow">REVIEW EVENT · 응모 전체</span><h2>후기 응모 13건</h2>
-          <p>사진과 영상, 후기를 함께 보고 10건을 골라 주세요. 카드 아래 <b>선택</b>을 누르면 고를 수 있고, 10건을 고르면 투표할 수 있어요.</p></div>
+        <div class="head"><span class="eyebrow">REVIEW EVENT · 심사 선정 10명</span><h2>후기 이벤트 당첨작</h2>
+          <p>여러분이 직접 담은 그날이에요. 카드를 누르면 사진·영상과 후기 전문을 볼 수 있어요.</p></div>
         <div class="filters" id="filters" role="group" aria-label="첨부 종류로 보기"></div>
         <div class="reviews" id="reviewGrid"></div>
       </div>
@@ -318,7 +392,7 @@ body.voting .foot{padding-bottom:84px}
       <img class="art" src="assets/booth.webp" alt="" aria-hidden="true">
       <div class="card">
         <div class="head"><span class="eyebrow">PHOTO BOOTH · 추첨 5명</span><h2>인생네컷 당첨</h2>
-          <p>포토부스에서 찍은 인생네컷을 보내 주신 분들 가운데 5분을 추첨해요. 아직 추첨 전이라 빈칸으로 두었어요.</p>
+          <p>포토부스에서 찍은 인생네컷을 보내 주신 분들 가운데 5분을 추첨으로 뽑았어요. 사진을 누르면 크게 볼 수 있어요.</p>
           <span class="badge">신세계 상품권 5만원</span></div>
         <div class="fours" id="fourGrid"></div>
       </div>
@@ -328,7 +402,7 @@ body.voting .foot{padding-bottom:84px}
       <img class="art" src="assets/picnic1.webp" alt="" aria-hidden="true" style="width:min(220px,46%)">
       <div class="card">
         <div class="head"><span class="eyebrow">GUESTBOOK · 익명</span><h2>한 줄 방명록</h2>
-          <p>이름 없이 남기는 방명록이에요. 결과 페이지에도 그대로 이어져요.</p></div>
+          <p>이름 없이 남기는 방명록이에요.</p></div>
         <div class="gb">
           <form class="form" id="gbForm" novalidate>
             <h3>한마디 남기기</h3>
@@ -357,16 +431,6 @@ body.voting .foot{padding-bottom:84px}
   </div></div>
 </footer>
 
-<div class="vbar" id="vbar" hidden role="region" aria-label="심사 투표">
-  <div class="in">
-    <span class="c tn" id="vCnt"></span>
-    <div class="chips tn" id="vChips"></div>
-    <button class="ghost" type="button" id="vBack" hidden>다시 고르기</button>
-    <button class="go" type="button" id="vGo" disabled>투표하기</button>
-    <p class="msg" id="vMsg" role="status" aria-live="polite"></p>
-  </div>
-</div>
-
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="크게 보기">
   <div class="lbc" id="lbc">
     <button class="x" type="button" id="lbX">닫기</button>
@@ -379,7 +443,6 @@ body.voting .foot{padding-bottom:84px}
       <div class="who"><span class="no tn" id="lbNo"></span><span class="dot" id="lbDot"></span><span class="n" id="lbName"></span><span class="t" id="lbOrg"></span></div>
       <p class="q" id="lbQ"></p>
       <p class="nt" id="lbNt"></p>
-      <div><button class="pick" type="button" id="lbPick">선택</button></div>
     </div>
   </div>
 </div>
@@ -395,8 +458,6 @@ const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const pad=n=>String(n).padStart(2,'0');
 const fmtDur=s=>`${Math.floor(s/60)}:${pad(Math.round(s%60))}`;
 
-/* 응모 수 */
-{const all=Object.values(M).flat(),p=all.filter(x=>x.t==='p').length;$('gCnt').innerHTML=`${D.reviews.length}건<small>사진 ${p} · 영상 ${all.length-p}</small>`;}
 /* 공식 사진 */
 const P=window.JUDGE_PHOTOS;
 function spans(n,big){if(big===2){return [Array.from({length:n},(_,k)=>k<2?'b':(n-2)%4&&k>=n-((n-2)%4)?(4/((n-2)%4)|0):1),Array.from({length:n},(_,k)=>k<2?2:((n-2)%2&&k===n-1?2:1))];}
@@ -411,58 +472,23 @@ $('mPh').textContent=`${P.length}장`;
 $('chapters').innerHTML=D.chapters.map((c,i)=>{const main=P.filter(p=>p.ch===c.f),pk=c.pk?P.filter(p=>p.ch===c.pk):[];
   return `<li class="ch"><div class="meta"><span class="t tn">${c.t}</span><h3>${esc(c.h)}</h3><p>${esc(c.d)}</p></div><div class="shots${c.big===2?' two':''}">${main.map((p,k)=>`<button class="shot${c.big===2&&k<2?' big2':''}" style="--sp:${spans(main.length,c.big)[0][k]==='b'?2:spans(main.length,c.big)[0][k]};--spm:${spans(main.length,c.big)[1][k]}" type="button" data-ch="${i}" data-k="${k}" aria-label="${esc(p.cap)} 크게 보기"><img src="photos/t/${p.f}" alt="" loading="lazy"><span class="lab">${esc(p.cap)}</span></button>`).join('')}${pk.length?`<p class="pk-h">12개 소본부</p><div class="pickets">${pk.map((p,k)=>`<button class="pk" type="button" data-ch="${i}" data-k="${main.length+k}" aria-label="${esc(p.cap)} 크게 보기"><img src="photos/t/${p.f}" alt="" loading="lazy"><span><i style="background:${T[p.cap]||'#ccc'}"></i>${esc(p.cap)}</span></button>`).join('')}</div>`:''}</div></li>`;}).join('');
 /* 인생네컷: 추첨 전 자리표시 */
-$('fourGrid').innerHTML=['#7D2621','#C9971F','#737E5C','#C83A2E','#4A2C20'].map((c,i)=>`<div class="four"><div class="frame" style="background:${c}"><i></i><i></i><i></i><i></i><b>KIST 60</b></div><div class="who2"><span class="t">${i+1}번째 당첨</span><span class="n">추첨 전</span></div></div>`).join('');
+$('fourGrid').innerHTML=D.fourcut.map((w,i)=>`<div class="four"><button class="fc" type="button" data-i="${i}" aria-label="${esc(w.name)} 인생네컷 크게 보기"><img src="photos/fourcut/t${i+1}.jpg" alt="" loading="lazy"></button><div class="who2"><span class="t">${i+1}번째 당첨</span><span class="n"><span class="dot" style="background:${T[w.team]||'#ccc'}"></span>${esc(w.name)}</span><span class="o">${esc(w.org)}</span></div></div>`).join('');
+const FC=D.fourcut.map((w,i)=>({t:'i',src:`photos/fourcut/f${i+1}.jpg`,th:`photos/fourcut/t${i+1}.jpg`,cap:`${i+1}번째 당첨 · ${w.name}`}));
+$('fourGrid').addEventListener('click',e=>{const b=e.target.closest('.fc');if(b)open(FC,+b.dataset.i,b);});
 
 /* 후기 카드 */
 const cnt=m=>{const p=m.filter(x=>x.t==='p').length,v=m.length-p;return [p?`사진 ${p}`:'',v?`영상 ${v}`:''].filter(Boolean).join(' · ');};
 const tile=x=>`<div class="m"><img src="${x.th}" alt="" loading="lazy">${x.t==='v'?`<span class="play"></span><span class="dur tn">${fmtDur(x.dur)}</span>`:''}</div>`;
-/* 심사 투표: 기기당 1회, 13건 중 10건 */
-const VAPI='/api/vote',NEED=D.pick||10;
-let picks=new Set(),voted=null,vdemo=false,curRev=null,confirming=false;
-const getDev=()=>{let d=null;try{d=localStorage.getItem('jdev');}catch(e){}if(!d){const m=document.cookie.match(/(?:^|; )jdev=([^;]+)/);d=m&&m[1];}
-  if(!d){d=(crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2));}
-  try{localStorage.setItem('jdev',d);}catch(e){}document.cookie=`jdev=${d};max-age=31536000;path=/;SameSite=Lax`;return d;};
-const DEV=getDev();
+/* 결과: 당첨 10건만 */
+const WIN=new Set(D.winners);let curRev=null;const syncLbPick=()=>{},togglePick=()=>{};
 let filter='전체';
 const FILTERS=['전체','영상 포함','사진만'];
 function drawReviews(){
   $('filters').innerHTML=FILTERS.map(f=>`<button type="button" aria-pressed="${f===filter}" data-f="${f}">${f}</button>`).join('');
-  const list=D.reviews.filter(r=>{const v=M[r.no].some(x=>x.t==='v');return filter==='전체'||(filter==='영상 포함'?v:!v);});
-  $('reviewGrid').innerHTML=list.map(r=>{const m=M[r.no];return `<article class="rv${picks.has(r.no)?' on':''}" data-no="${r.no}"><button class="open" type="button" aria-label="${pad(r.no)} ${esc(r.name)} 후기 전문 보기"><div class="strip3 n${Math.min(m.length,3)}">${m.slice(0,3).map(tile).join('')}</div><div class="body"><div class="top"><span class="no tn">${pad(r.no)}</span><span class="cnt tn">${cnt(m)}</span></div><p class="q">${esc(r.text)}</p><div class="who"><span class="dot" style="background:${T[r.team]}"></span><span class="n">${esc(r.name)}</span><span class="t">${esc(r.team)} · ${esc(r.org)}</span><span class="more">전문 보기</span></div></div></button><div class="pickrow"><button class="pick" type="button" data-pick="${r.no}" aria-pressed="${picks.has(r.no)}"${voted?' disabled':''}>${picks.has(r.no)?'선택함':'선택'}</button></div></article>`;}).join('');
+  const list=D.reviews.filter(r=>WIN.has(r.no)).filter(r=>{const v=M[r.no].some(x=>x.t==='v');return filter==='전체'||(filter==='영상 포함'?v:!v);});
+  $('reviewGrid').innerHTML=list.map(r=>{const m=M[r.no];return `<article class="rv" data-no="${r.no}"><button class="open" type="button" aria-label="${pad(r.no)} ${esc(r.name)} 후기 전문 보기"><div class="strip3 n${Math.min(m.length,3)}">${m.slice(0,3).map(tile).join('')}</div><div class="body"><div class="top"><span class="no tn">${pad(D.winners.indexOf(r.no)+1)}</span><span class="cnt tn">${cnt(m)}</span></div><p class="q">${esc(r.text)}</p><div class="who"><span class="dot" style="background:${T[r.team]}"></span><span class="n">${esc(r.name)}</span><span class="t">${esc(r.org)}</span><span class="more">전문 보기</span></div></div></button></article>`;}).join('');
 }
-function drawBar(){
-  const vb=$('vbar');vb.hidden=false;document.body.classList.add('voting');
-  const list=[...picks].sort((a,b)=>a-b);
-  $('vChips').innerHTML=list.map(n=>`<span>${pad(n)}</span>`).join('');
-  vb.classList.toggle('done',!!voted);
-  if(voted){$('vCnt').innerHTML=`<b>투표 완료</b> · ${voted.at||''}`;$('vGo').hidden=true;$('vBack').hidden=true;return;}
-  $('vGo').hidden=false;
-  if(confirming){$('vCnt').innerHTML=`이 <b>${NEED}</b>건으로 투표할까요?`;$('vGo').textContent='투표 확정';$('vGo').disabled=false;$('vBack').hidden=false;$('vMsg').textContent='확정하면 이 기기에서는 다시 투표할 수 없어요.';}
-  else{$('vCnt').innerHTML=`선택 <b>${picks.size}</b> / ${NEED}`;$('vGo').textContent='투표하기';$('vGo').disabled=picks.size!==NEED;$('vBack').hidden=true;
-    if(!$('vMsg').dataset.keep)$('vMsg').textContent=picks.size>NEED?'':(picks.size===NEED?'10건을 다 골랐어요. 투표하기를 눌러 주세요.':'');}
-}
-function syncLbPick(){const b=$('lbPick');if(curRev==null)return;const on=picks.has(curRev);b.setAttribute('aria-pressed',on);b.textContent=on?'선택함':'선택';b.disabled=!!voted;}
-function togglePick(n){if(voted)return;confirming=false;$('vMsg').dataset.keep='';
-  if(picks.has(n))picks.delete(n);else{if(picks.size>=NEED){$('vMsg').textContent=`이미 ${NEED}건을 골랐어요. 하나를 빼고 다시 골라 주세요.`;$('vMsg').dataset.keep='1';drawBar();return;}picks.add(n);}
-  drawReviews();drawBar();syncLbPick();}
-$('lbPick').onclick=()=>{if(curRev!=null)togglePick(curRev);};
-$('vBack').onclick=()=>{confirming=false;$('vMsg').textContent='';drawBar();};
-$('vGo').onclick=()=>{
-  if(voted||picks.size!==NEED)return;
-  if(!confirming){confirming=true;drawBar();return;}
-  const list=[...picks].sort((a,b)=>a-b);const d=new Date(),at=`${pad(d.getMonth()+1)}.${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
-  const finish=()=>{voted={picks:list,at};confirming=false;if(!vdemo){try{localStorage.setItem('jvote',JSON.stringify(voted));}catch(e){}}$('vMsg').textContent=vdemo?'미리보기라 저장되지 않았어요. 실제 페이지에서는 서버에 저장돼요.':'투표했어요. 참여해 주셔서 감사합니다.';drawReviews();drawBar();syncLbPick();};
-  if(vdemo){finish();return;}
-  $('vGo').disabled=true;$('vMsg').textContent='보내는 중이에요.';
-  fetch(VAPI,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({device:DEV,picks:list})})
-    .then(r=>r.json().then(j=>({ok:r.ok,j})))
-    .then(({ok,j})=>{if(ok)return finish();if(j.error==='already'){voted={picks:j.picks||list,at:j.at||''};picks=new Set(voted.picks);try{localStorage.setItem('jvote',JSON.stringify(voted));}catch(e){}$('vMsg').textContent='이 기기에서는 이미 투표했어요.';drawReviews();drawBar();return;}throw 0;})
-    .catch(()=>{$('vGo').disabled=false;$('vMsg').textContent='투표를 보내지 못했어요. 잠시 후 다시 눌러 주세요.';});
-};
-try{const v=JSON.parse(localStorage.getItem('jvote')||'null');if(v&&v.picks){voted=v;picks=new Set(v.picks);}}catch(e){}
-fetch(VAPI+'?device='+encodeURIComponent(DEV)).then(r=>{if(!r.ok)throw 0;return r.json();}).then(j=>{if(j.voted){voted={picks:j.picks,at:j.at};picks=new Set(j.picks);try{localStorage.setItem('jvote',JSON.stringify(voted));}catch(e){}drawReviews();drawBar();}})
-  .catch(()=>{vdemo=true;});
-drawReviews();drawBar();
+drawReviews();
 $('filters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;filter=b.dataset.f;drawReviews();});
 
 /* 크게 보기 */
@@ -478,7 +504,7 @@ function show(k){
 function open(list,k,from,rev){
   L=list;last=from;$('lbc').classList.toggle('photo',!rev);$('lbTxt').hidden=!rev;
   $('thumbs').innerHTML=L.map((x,j)=>`<button class="th" type="button" data-j="${j}" aria-label="${x.t==='v'?'영상':'사진'} ${j+1}"><img src="${x.th}" alt="">${x.t==='v'?'<span class="play"></span>':''}</button>`).join('');
-  if(rev){$('lbNo').textContent=pad(rev.no);$('lbDot').style.background=T[rev.team];$('lbName').textContent=rev.name;$('lbOrg').textContent=`${rev.team} · ${rev.org}`;$('lbQ').textContent=rev.text;$('lbNt').textContent=rev.note||'';$('lbNt').hidden=!rev.note;}
+  if(rev){$('lbNo').textContent=pad(D.winners.indexOf(rev.no)+1);$('lbDot').style.background=T[rev.team];$('lbName').textContent=rev.name;$('lbOrg').textContent=rev.org;$('lbQ').textContent=rev.text;$('lbNt').textContent=rev.note||'';$('lbNt').hidden=!rev.note;}
   show(k);lb.hidden=false;document.body.style.overflow='hidden';$('lbX').focus();
 }
 function close(){const v=$('stageIn').querySelector('video');if(v)v.pause();lb.hidden=true;document.body.style.overflow='';last&&last.focus();}
